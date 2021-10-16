@@ -1,0 +1,78 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : 5 Oct 2021, 13:27:54
+    Author     : Clara Maj
+*/
+.parent{
+    -fx-background-color: white;
+}
+
+.informationbar{
+    -fx-background-color: transparent;
+    -fx-border-color:#46A41F;
+    -fx-border-width:  0px 0px 2px 0px;
+}
+
+.sidebar{
+    -fx-background-color: #46A41F;
+    -fx-text-fil:  #FFFFFF;
+}
+
+.forgetPass{
+    -fx-text-fill: #5B5B5B;
+}
+
+.forgetPass:hover{
+    -fx-text-fill: #467E1F;
+    -fx-underline: true;
+}
+
+.loginBtn{
+    -fx-background-color: #43931E;
+    -fx-text-fill: #FFF;
+    -fx-background-radius: 10px;
+}
+
+.loginBtn:hover{
+    -fx-background-color: transparent;
+    -fx-text-fill: #467E1F;
+    -fx-border-color: #467E1F;
+    -fx-border-width: 1px;
+    -fx-border-style: solid;
+    -fx-border-radius: 10px;
+}
+
+.newUserBtn{
+   -fx-background-color: transparent;
+    -fx-text-fill: #467E1F;
+    -fx-border-color: transparent;
+}
+
+.newUserBtn:hover{
+    -fx-underline: true;
+}
+
+.newUser{
+    -fx-text-fill: #8D8D8D;
+}
+
+.exitBtn{
+    -fx-text-fill: #5B5B5B;
+}
+
+.exitBtn:hover{
+    -fx-text-fill: #D81817;
+}
+
+.mainBackground {
+    -fx-background-color: white;
+
+}
+.mainTopBar {
+    -fx-background-color: #46A41F;
+}
+
