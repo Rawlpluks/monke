@@ -9,6 +9,8 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import javafx.scene.paint.Color;
 import javafx.stage.StageStyle;
+import java.sql.SQLException;
+import java.util.ArrayList;
 
 /**
  * JavaFX App
@@ -16,14 +18,20 @@ import javafx.stage.StageStyle;
 public class App extends Application {
 
     private static Scene scene;
-
+    public static User U = new User("","");
+    public static Database db = new Database();
+    public static  ArrayList<User> users = new ArrayList<User>();
+    public static  ArrayList<ChatRoom> chatrooms = new ArrayList<ChatRoom>();
+    public static  ArrayList<Message> messages = new ArrayList<Message>();
+    public static  ArrayList<ChatUser> chatUsers = new ArrayList<ChatUser>();
+    
+    
+    
     @Override
     public void start(Stage stage) throws IOException {
-       //Parent root = FXMLLoader.load(getClass().getResource("startfront.fxml"));
-       
+              
         scene = new Scene(loadFXML("startfront"));  
         scene.setFill(Color.TRANSPARENT);
-        
         stage.initStyle(StageStyle.TRANSPARENT); 
         stage.setScene(scene);
         stage.show();
@@ -40,6 +48,12 @@ public class App extends Application {
 
     public static void main(String[] args) {
         launch();
+        /*  Database db = new Database();
+        App.users = db.getAllUsers();
+        App.chatrooms = db.getAllchatRooms();
+        App.messages = db.getAllmessages();
+        App.chatUsers = db.getAllchatUsers();
+        System.out.println("Hello world igen");*/
     }
 
 }
