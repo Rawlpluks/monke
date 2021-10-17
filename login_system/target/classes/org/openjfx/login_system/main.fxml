@@ -12,13 +12,13 @@
       <TextField fx:id="chatBar" layoutX="14.0" layoutY="561.0" prefHeight="26.0" prefWidth="714.0" />
       <Label fx:id="chatDisplay" layoutX="14.0" layoutY="56.0" prefHeight="491.0" prefWidth="714.0" style="-fx-background-color: white;" />
       <Button id="sendKnap" layoutX="742.0" layoutY="561.0" mnemonicParsing="false" onAction="#sendButton" text="Send" />
-      <TextField fx:id="whoAreTalking" layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="357.0" />
-      <MenuButton fx:id="chatRoomMenu" layoutX="372.0" layoutY="14.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="358.0">
+      <MenuButton fx:id="chatRoomMenu" layoutX="379.0" layoutY="14.0" mnemonicParsing="false" onAction="#chatRoomMenuText" prefHeight="26.0" prefWidth="351.0">
         <items>
-          <MenuItem mnemonicParsing="false" text="Action 1" />
-            <MenuItem mnemonicParsing="false" text="Unspecified Action" />
-          <MenuItem mnemonicParsing="false" text="Action 2" />
+          <MenuItem mnemonicParsing="false" text="Chat 1" />
+            <MenuItem mnemonicParsing="false" text="Chat 2" />
+          <MenuItem mnemonicParsing="false" text="Chat 3" />
         </items>
       </MenuButton>
+      <Label fx:id="whoAreTalking" layoutX="14.0" layoutY="14.0" prefHeight="26.0" prefWidth="351.0" style="-fx-background-color: white;" />
    </children>
 </AnchorPane>
