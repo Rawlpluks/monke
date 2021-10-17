@@ -46,14 +46,14 @@ public class App extends Application {
         return fxmlLoader.load();
     }
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws Exception {
         launch();
-        /*  Database db = new Database();
+        Database db = new Database();
         App.users = db.getAllUsers();
         App.chatrooms = db.getAllchatRooms();
         App.messages = db.getAllmessages();
         App.chatUsers = db.getAllchatUsers();
-        System.out.println("Hello world igen");*/
+        System.out.println("Hello world igen");
     }
 
 }
