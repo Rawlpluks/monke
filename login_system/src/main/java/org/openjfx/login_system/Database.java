@@ -282,8 +282,9 @@ public class Database {
 
         //Skab forbindelse til databasen
         try {
+            conn = DriverManager.getConnection(connectionString);
             Statement stat = conn.createStatement();
-
+            
             //Læser fra database alt data fra databasetabellen user
             ResultSet rs = stat.executeQuery("select Username, Password");
 
@@ -306,5 +307,4 @@ public class Database {
         return userExist;
 
     }
-    
-}   
+}
