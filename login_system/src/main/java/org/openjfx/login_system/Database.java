@@ -276,6 +276,7 @@ public class Database {
         ArrayList<User> allUsers = new ArrayList<>();
         User myUser = new User();
         boolean userExist = false;
+        Crypt encrypter = new Crypt();
 
         Connection conn = null;
         Class.forName("org.sqlite.JDBC");
@@ -292,7 +293,7 @@ public class Database {
                 allUsers.add(new User(rs.getInt("UserID"), rs.getString("Username"), rs.getString("Password")));
             }
             for (int i = 0; i < allUsers.size(); i++) {
-                if (allUsers.get(i).getUserUN().equals(Username) && allUsers.get(i).getUserPW().equals(Password)) {
+                if (allUsers.get(i).getUserUN().equals(Username) && allUsers.get(i).getUserPW().equals(encrypter.encrypt(Password))) {
                     userExist = true;
                 }
                 rs.close();
