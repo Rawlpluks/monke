@@ -72,7 +72,7 @@ public class SignupController implements Initializable {
     @FXML
     private void signupBtn () throws IOException, Exception {
         
-        Crypt encrypt = new Crypt(); 
+        Crypt encrypter = new Crypt(); 
         
         //er tekstfeltet tomt eller ej 
         if(!newUsername.getText().isBlank() && !newPassword.getText().isBlank()){
@@ -81,7 +81,7 @@ public class SignupController implements Initializable {
         //laver og tilføjer den nye bruger til databasen
         Database db = new Database();
         String cryptPassword;
-        cryptPassword = encrypt.encrypt(newPassword.getText());
+        cryptPassword = encrypter.encrypt(newPassword.getText());
         db.saveUser(new User (-1, newUsername.getText(),cryptPassword));
         if(newUser == true) {
            signupText.setText("Bruger oprettet!");
