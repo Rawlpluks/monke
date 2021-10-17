@@ -18,7 +18,7 @@ import java.util.ArrayList;
 public class App extends Application {
 
     private static Scene scene;
-    public static User U = new User("","");
+    //public static User U = new User("","");
     public static Database db = new Database();
     public static  ArrayList<User> users = new ArrayList<User>();
     public static  ArrayList<ChatRoom> chatrooms = new ArrayList<ChatRoom>();

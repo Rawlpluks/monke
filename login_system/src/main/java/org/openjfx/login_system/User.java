@@ -10,15 +10,30 @@ package org.openjfx.login_system;
  * @author danie
  */
 public class User {
-    String userName;
-    String passWord;
-    User(String uName, String pWord){
+     int userId;
+     String userName;
+     String passWord;
+    
+    public User() {}
+    
+    User(int uId, String uName, String pWord){
+      userId = uId;  
       userName = uName;
       passWord = pWord;
     }
     
-    void myFunction()
-    {
-    
+    public int getUserID(){
+        return userId;
     }
+    
+    public String getUserUN() {
+        return userName;
+    }
+    
+    public String getUserPW() {
+        return passWord;
+    }
+    
+  
+    
 }

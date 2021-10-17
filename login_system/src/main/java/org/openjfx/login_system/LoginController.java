@@ -48,13 +48,19 @@ public class LoginController {
              vbox.getChildren().setAll(fxml);
                         
          } catch (IOException ex) {
-            // Logger.getLogger(FrontPageController.class.getName()).log(Level.SEVERE, null, ex);
+            
          }
     }
 
     @FXML
-    private void switchToMain(ActionEvent event) throws IOException {
-        App.setRoot("main");
+    public void switchToMain(ActionEvent event) throws IOException, Exception {
+        Database myDatabase = new Database();
+        if(myDatabase.login(username.getText(), password.getText()) == true){
+           App.setRoot("main");
+        }
+        if(myDatabase.login(username.getText(), password.getText()) == false){
+           //fejlmelding appear men er for træt og kan ikke huske sql lige nu
+        }
     }
 
     

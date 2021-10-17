@@ -40,7 +40,7 @@ public class Database {
 
             //Løber data igennem via en løkke og skriver det up.    
             while (rs.next()) {
-                allUsers.add(new User(rs.getString("Username"), rs.getString("Password")));
+                allUsers.add(new User(rs.getInt("UserID"), rs.getString("Username"), rs.getString("Password")));
             }
             rs.close();
         }
@@ -178,6 +178,7 @@ public class Database {
     {
         Connection conn = null;
         Class.forName("org.sqlite.JDBC");
+        String sql;
         
         //Skab forbindelse til databasen...
         try {          
@@ -187,7 +188,12 @@ public class Database {
           //Skrive fejlhåndtering her
         }
         
-        String sql = "INSERT INTO Users(Username, Password) VALUES('" + x.userName + "', '" + x.passWord + "')";
+         //Hvis user har ID updater data, ellers gem ny person
+        if (x.getUserID() != -1) {
+            sql = "UPDATE User SET Username = '" + x.getUserUN() + "', Password = '" + x.getUserPW() + "') WHERE ID = " + x.getUserID() + ";";
+        } else {
+            sql = "INSERT INTO Users(Username, Password) VALUES('" + x.getUserUN() + "', '" + x.getUserPW() + "')";
+        }
  
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             //pstmt.setString(1, name);
@@ -268,5 +274,41 @@ public class Database {
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }        
+    }
+    
+    
+    public boolean login(String Username, String Password) throws SQLException, Exception {
+        ArrayList<User> allUsers = new ArrayList<>();
+        User myUser = new User();
+        boolean userExist = false;
+
+        Connection conn = null;
+        Class.forName("org.sqlite.JDBC");
+
+        //Skab forbindelse til databasen
+        try {
+            Statement stat = conn.createStatement();
+
+            //Læser fra database alt data fra databasetabellen user
+            ResultSet rs = stat.executeQuery("select Username, Password");
+
+            while (rs.next()) {
+                allUsers.add(new User(rs.getInt("UserID"), rs.getString("Username"), rs.getString("Password")));
+            }
+            for (int i = 0; i < allUsers.size(); i++) {
+                if (allUsers.get(i).getUserUN().equals(Username) && allUsers.get(i).getUserPW().equals(Password)) {
+                    userExist = true;
+                }
+                rs.close();
+            }
+        } catch (SQLException e) {
+            //Fejlhåndtering
+            System.out.println(" DB Error: " + e.getMessage());
+        }
+        //Luk forbindelsen
+        conn.close();
+
+        return userExist;
+
     }
 }

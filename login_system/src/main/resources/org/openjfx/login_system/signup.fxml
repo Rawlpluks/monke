@@ -10,6 +10,7 @@
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
 <VBox fx:id="vbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="600.0" prefWidth="400.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.openjfx.login_system.SignupController">
    <children>
@@ -37,7 +38,7 @@
             <Insets left="50.0" />
          </VBox.margin>
       </Label>
-      <TextField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="300.0" promptText="Username" styleClass="informationbar" stylesheets="@Styles.css">
+      <TextField fx:id="newUsername" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="300.0" promptText="Username" styleClass="informationbar" stylesheets="@Styles.css">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
@@ -45,7 +46,7 @@
             <Insets left="50.0" top="25.0" />
          </VBox.margin>
       </TextField>
-      <PasswordField maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="300.0" promptText="Password" styleClass="informationbar" stylesheets="@Styles.css">
+      <PasswordField fx:id="newPassword" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="28.0" prefWidth="300.0" promptText="Password" styleClass="informationbar" stylesheets="@Styles.css">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor>
@@ -53,12 +54,17 @@
             <Insets left="50.0" top="10.0" />
          </VBox.margin>
       </PasswordField>
-      <Button fx:id="signUpBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#singup" onMouseClicked="#signup" prefHeight="50.0" prefWidth="250.0" styleClass="loginBtn" stylesheets="@Styles.css" text="Sign up">
+      <Text fx:id="signupText" fill="#9a1919" strokeType="OUTSIDE" strokeWidth="0.0">
+         <VBox.margin>
+            <Insets left="160.0" top="10.0" />
+         </VBox.margin>
+      </Text>
+      <Button fx:id="signUpBtn" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" onAction="#signupBtn" prefHeight="50.0" prefWidth="250.0" styleClass="loginBtn" stylesheets="@Styles.css" text="Sign up">
          <cursor>
             <Cursor fx:constant="HAND" />
          </cursor>
          <VBox.margin>
-            <Insets left="75.0" top="20.0" />
+            <Insets left="75.0" top="10.0" />
          </VBox.margin>
       </Button>
       <Label styleClass="newUser" stylesheets="@Styles.css" text="Already have a user?">
