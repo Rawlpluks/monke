@@ -212,7 +212,7 @@ public class Database {
           //Skrive fejlhåndtering her
         }
         
-        String sql = "INSERT INTO Messages(ID_message, message, sender_ID, C_ID) VALUES('" + x.ID_message + "', '" + x.message + "', '" + x.sender + "','" + x.Chatroom_ID + "')";
+        String sql = "INSERT INTO Messages(message, sender_ID, C_ID) VALUES('" + x.message + "', '" + x.sender + "','" + x.Chatroom_ID + "')";
  
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             //pstmt.setString(1, name);

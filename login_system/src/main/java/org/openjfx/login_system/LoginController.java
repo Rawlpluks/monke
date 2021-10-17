@@ -38,6 +38,8 @@ public class LoginController {
     private TextField username;
     @FXML
     private PasswordField password;
+    
+    
 
     
     @FXML
@@ -57,6 +59,7 @@ public class LoginController {
         Database myDatabase = new Database();
         if(myDatabase.login(username.getText(), password.getText()) == true){
            App.setRoot("main");
+           
         }
         if(myDatabase.login(username.getText(), password.getText()) == false){
            //fejlmelding appear men er for træt og kan ikke huske sql lige nu

@@ -43,7 +43,7 @@ public class MainController {
     public String pastMessages() throws Exception{
     pastMessages = "";
     for(int i = 0; i<db.getAllmessages().size(); i++){
-            pastMessages = db.getAllmessages().get(i) + pastMessages + "\n";
+            pastMessages = pastMessages + "\n" + db.getAllmessages().get(i).message;
         }
     return pastMessages;
     }
@@ -76,11 +76,11 @@ public void sendButton() throws IOException, Exception{
     db.savemessage(mess);
     
     
-    pastMessages();
-    chatDisplay = new Label(pastMessages);
+    
+    //chatDisplay = new Label(pastMessages());
     
     //If the one above doesn't work, try this:
-    //chatDisplay.setText(pastMessages);
+    chatDisplay.setText(pastMessages());
     
     
     chatBar.setText("");
