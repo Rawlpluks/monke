@@ -71,12 +71,13 @@ public class SignupController implements Initializable {
     
     @FXML
     private void signupBtn () throws IOException, Exception {
-        System.out.println("youre now signed up :3");
+        
+        
         
         //er tekstfeltet tomt eller ej 
         if(!newUsername.getText().isBlank() && !newPassword.getText().isBlank()){
            newUser = true;
-           
+           System.out.println("youre now signed up :3");
         //laver og tilføjer den nye bruger til databasen
         Database db = new Database();
         db.saveUser(new User (-1, newUsername.getText(),newPassword.getText()));

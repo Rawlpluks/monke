@@ -188,12 +188,7 @@ public class Database {
           //Skrive fejlhåndtering her
         }
         
-         //Hvis user har ID updater data, ellers gem ny person
-        if (x.getUserID() != -1) {
-            sql = "UPDATE User SET Username = '" + x.getUserUN() + "', Password = '" + x.getUserPW() + "') WHERE ID = " + x.getUserID() + ";";
-        } else {
-            sql = "INSERT INTO Users(Username, Password) VALUES('" + x.getUserUN() + "', '" + x.getUserPW() + "')";
-        }
+         sql = "INSERT INTO Users(Username, Password) VALUES('" + x.getUserUN() + "', '" + x.getUserPW() + "')";
  
         try (PreparedStatement pstmt = conn.prepareStatement(sql)) {
             //pstmt.setString(1, name);
@@ -311,4 +306,5 @@ public class Database {
         return userExist;
 
     }
-}
+    
+}   
