@@ -30,7 +30,7 @@ public class App extends Application {
     @Override
     public void start(Stage stage) throws IOException {
               
-        scene = new Scene(loadFXML("startfront"));  
+        scene = new Scene(loadFXML("startfront"));//this one decides which page it starts on  
         scene.setFill(Color.TRANSPARENT);
         stage.initStyle(StageStyle.TRANSPARENT); 
         stage.setScene(scene);

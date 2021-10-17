@@ -28,14 +28,23 @@ public class MainController {
     @FXML Label chatDisplay;
     
     String chatBarInput;
+    String pastMessages;
+    
+    Database db = new Database();
     
     //temporary variables. Delete before handing in
-    String currentSender = "Adam";
+    public String currentSender = "Adam";
     int currentChatRoom = 1;
     
-        
+       
     
-    
+    public String pastMessages() throws Exception{
+    pastMessages = "";
+    for(int i = 0; i<db.getAllmessages().size(); i++){
+            pastMessages = db.getAllmessages().get(i) + pastMessages + "\n";
+        }
+    return pastMessages;
+    }
     
     @FXML
 public void textFieldEnter(KeyEvent e){
@@ -54,9 +63,14 @@ public void sendButton() throws IOException, Exception{
     chatBarInput = chatBar.getText();
     System.out.println(chatBarInput);
     Message mess = new Message(-1, chatBarInput, currentSender, currentChatRoom);
-    Database db = new Database();
-    
     db.savemessage(mess);
+    
+    
+    pastMessages();
+    chatDisplay = new Label(pastMessages);
+    
+    //If the one above doesn't work, try this:
+    //chatDisplay.setText(pastMessages);
     
     
     chatBar.setText("");
