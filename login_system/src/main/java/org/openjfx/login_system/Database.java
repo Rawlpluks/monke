@@ -12,7 +12,7 @@ import java.util.ArrayList;
  * @author danie
  */
 public class Database {
-   private final String connectionString = "jdbc:sqlite:src/Database.db";
+   private final String connectionString = "jdbc:sqlite:src/Brugerbeskeder.sqlite";
    
    public ArrayList<User> getAllUsers() throws SQLException, Exception {
         
@@ -36,7 +36,7 @@ public class Database {
             Statement stat = conn.createStatement();   
 
             //Læser fra database alt data fra databasetabellen people.   
-            ResultSet rs = stat.executeQuery("Username, Password");
+            ResultSet rs = stat.executeQuery("select UserID, Username, Password from Users");
 
             //Løber data igennem via en løkke og skriver det up.    
             while (rs.next()) {
@@ -76,7 +76,7 @@ public class Database {
             Statement stat = conn.createStatement();   
 
             //Læser fra database alt data fra databasetabellen people.   
-            ResultSet rs = stat.executeQuery("ID_chatRoom, Navn");
+            ResultSet rs = stat.executeQuery("select ID_chatRoom, Navn from chatRoom");
 
             //Løber data igennem via en løkke og skriver det up.    
             while (rs.next()) {
@@ -116,7 +116,7 @@ public class Database {
             Statement stat = conn.createStatement();   
 
             //Læser fra database alt data fra databasetabellen people.   
-            ResultSet rs = stat.executeQuery("Users_name, C_ID");
+            ResultSet rs = stat.executeQuery("select Users_name, C_ID from chatUser");
 
             //Løber data igennem via en løkke og skriver det up.    
             while (rs.next()) {
@@ -156,7 +156,7 @@ public class Database {
             Statement stat = conn.createStatement();   
 
             //Læser fra database alt data fra databasetabellen people.   
-            ResultSet rs = stat.executeQuery("ID_message, message, sender_ID, C_ID");
+            ResultSet rs = stat.executeQuery("select ID_message, message, sender_ID, C_ID from Messages");
 
             //Løber data igennem via en løkke og skriver det up.    
             while (rs.next()) {
@@ -286,7 +286,7 @@ public class Database {
             Statement stat = conn.createStatement();
             
             //Læser fra database alt data fra databasetabellen user
-            ResultSet rs = stat.executeQuery("select Username, Password");
+            ResultSet rs = stat.executeQuery("select UserID, Username, Password from Users");
 
             while (rs.next()) {
                 allUsers.add(new User(rs.getInt("UserID"), rs.getString("Username"), rs.getString("Password")));
